@@ -43,6 +43,11 @@ public class RedisClientFactory {
         return RedisClientProxyFactory.getProxy(jedisPool);
     }
 
+    public static IRedisClient createRedisClient(String host, int port) {
+        JedisPool jedisPool = new JedisPool(defaultConfig, host, port, TIME_OUT);
+        return RedisClientProxyFactory.getProxy(jedisPool);
+    }
+
     public static IRedisClient createRedisClient(JedisPoolConfig jedisPoolConfig, String host, int port, String auth) {
         JedisPool jedisPool = new JedisPool(jedisPoolConfig, host, port, TIME_OUT, auth);
         return RedisClientProxyFactory.getProxy(jedisPool);
