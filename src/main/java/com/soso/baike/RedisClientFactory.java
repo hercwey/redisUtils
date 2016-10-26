@@ -66,6 +66,8 @@ public class RedisClientFactory {
 
                     Jedis jedis = null;
                     try {
+
+
                         jedis = jedisPool.getResource();
                         return method.invoke(jedis, args);
                     } catch (Exception e) {
